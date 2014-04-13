@@ -172,3 +172,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+ZinkoLabs.AppFx.StartupNotifications.TestApp/PerfLogs/
+ZinkoLabs.AppFx.StartupNotifications.TestApp/SubmissionInfo/
