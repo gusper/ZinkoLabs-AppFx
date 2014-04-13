@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ZinkoLabs.Common.UI.StartupNotifications.TestApp</RootNamespace>
-    <AssemblyName>ZinkoLabs.Common.UI.StartupNotifications.TestApp</AssemblyName>
+    <RootNamespace>ZinkoLabs.AppFxI.StartupNotifications.TestApp</RootNamespace>
+    <AssemblyName>ZinkoLabs.AppFx.StartupNotifications.TestApp</AssemblyName>
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>
     </SilverlightVersion>
@@ -22,7 +22,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>ZinkoLabs.Common.UI.StartupNotifications.TestApp_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>ZinkoLabs.AppFx.StartupNotifications.TestApp_Release_AnyCPU.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>ZinkoLabs.Common.UI.StartupNotifications.TestApp.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>

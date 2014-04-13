@@ -5,47 +5,47 @@ namespace ZinkoLabs.AppFx.StartupNotifications
 {
     public class EulaPresenter
     {
-        IsolatedStorageSettings isoStore = IsolatedStorageSettings.ApplicationSettings;
-        private bool alreadyAccepted;
-        private string appName;
-        private int appVersion;
-        private string appEulaText;
-        private const string EulaAcceptanceResult = "ZinkoLabs.Common.UI.EulaPresentation.UserAcceptedEula";
+        IsolatedStorageSettings _isoStore = IsolatedStorageSettings.ApplicationSettings;
+        bool _alreadyAccepted;
+        string _appName;
+        int _appVersion;
+        string _appEulaText;
+        const string _eulaAcceptanceResult = "ZinkoLabs.AppFx.EulaPresentation.UserAcceptedEula";
 
         public EulaPresenter(string appName, int appVersion, string appEulaText)
         {
-            this.appName = appName;
-            this.appVersion = appVersion;
-            this.appEulaText = appEulaText;
-            this.alreadyAccepted = this.IsEulaAlreadyAccepted();
+            _appName = appName;
+            _appVersion = appVersion;
+            _appEulaText = appEulaText;
+            _alreadyAccepted = IsEulaAlreadyAccepted();
         }
 
         public bool PresentEulaToUser()
         {
-            if (this.alreadyAccepted)
+            if (_alreadyAccepted)
                 return true;
 
-            var mbResult = MessageBox.Show(this.appEulaText, string.Format("{0} Application Terms", this.appName), MessageBoxButton.OKCancel);
+            var mbResult = MessageBox.Show(_appEulaText, string.Format("{0} Application Terms", _appName), MessageBoxButton.OKCancel);
 
             if (mbResult != MessageBoxResult.OK)
                 return false;
 
             SaveAcceptedEulaState();
-            this.alreadyAccepted = true;
+            _alreadyAccepted = true;
             return true;
         }
 
-        private bool IsEulaAlreadyAccepted()
+        internal bool IsEulaAlreadyAccepted()
         {
-            if (isoStore.Contains(EulaAcceptanceResult))
-                return (this.appVersion <= (int)isoStore[EulaAcceptanceResult]);
+            if (_isoStore.Contains(_eulaAcceptanceResult))
+                return (_appVersion <= (int)_isoStore[_eulaAcceptanceResult]);
 
             return false;
         }
 
-        private void SaveAcceptedEulaState()
+        internal void SaveAcceptedEulaState()
         {
-            isoStore[EulaAcceptanceResult] = this.appVersion;
+            _isoStore[_eulaAcceptanceResult] = _appVersion;
         }
     }
 }

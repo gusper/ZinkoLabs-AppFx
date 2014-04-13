@@ -6,9 +6,9 @@ using System.Windows;
 
 namespace ZinkoLabs.AppFx.CrashNotifications
 {
-    public class CrashNotificationsManager
+    public static class CrashNotificationsManager
     {
-        const string filename = "CrashNotificationData.txt";
+        const string filename = "ZinkoLabs.AppFx.CrashNotificationData.txt";
 
         public static void ReportException(Exception ex, string extra)
         {
@@ -68,7 +68,7 @@ namespace ZinkoLabs.AppFx.CrashNotifications
             }
         }
 
-        private static void SafeDeleteFile(IsolatedStorageFile store)
+        internal static void SafeDeleteFile(IsolatedStorageFile store)
         {
             try
             {

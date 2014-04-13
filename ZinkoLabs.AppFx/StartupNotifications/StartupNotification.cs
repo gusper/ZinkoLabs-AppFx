@@ -4,19 +4,19 @@ namespace ZinkoLabs.AppFx.StartupNotifications
 {
     public class StartupNotification
     {
-        private int id;
-        private string title;
-        private string message;
+        int _id;
+        string _title;
+        string _message;
 
-        public int Id { get { return this.id; } }
-        public string Title { get { return this.title; } }
-        public string Message { get { return this.message; } }
+        public int ID { get { return _id; } }
+        public string Title { get { return _title; } }
+        public string Message { get { return _message; } }
 
         public StartupNotification(int id, string title, string message)
         {
-            this.id = id;
-            this.title = title;
-            this.message = message;
+            _id = id;
+            _title = title;
+            _message = message;
         }
     }
 }

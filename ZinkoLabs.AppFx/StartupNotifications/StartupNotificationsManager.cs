@@ -5,43 +5,43 @@ namespace ZinkoLabs.AppFx.StartupNotifications
 {
     public class StartupNotificationsManager
     {
-        IsolatedStorageSettings isoStore = IsolatedStorageSettings.ApplicationSettings;
-        StartupNotification notification;
-        private bool alreadyBeenShown = false;
-        private string appName;
-        private const string LastShownNotificationId = "ZinkoLabs.Common.UI.StartupNotifications.LastShownNotificationId";
+        IsolatedStorageSettings _isoStore = IsolatedStorageSettings.ApplicationSettings;
+        StartupNotification _notification;
+        bool _alreadyBeenShown = false;
+        string _appName;
+        const string _lastShownNotificationId = "ZinkoLabs.AppFx.StartupNotifications.LastShownNotificationId";
 
         public StartupNotificationsManager(string appName, StartupNotification notification)
         {
-            this.appName = appName;
-            this.notification = notification;
+            _appName = appName;
+            _notification = notification;
         }
 
         public void ShowNotifications()
         {
-            if (this.alreadyBeenShown)
+            if (_alreadyBeenShown)
                 return;
 
-            if (notification.Id > LoadLastShownId())
+            if (_notification.ID > LoadLastShownId())
             {
-                MessageBox.Show(notification.Message, notification.Title, MessageBoxButton.OK);
-                SaveLastShownId(notification.Id);
+                MessageBox.Show(_notification.Message, _notification.Title, MessageBoxButton.OK);
+                SaveLastShownId(_notification.ID);
             }
 
-            this.alreadyBeenShown = true;
+            _alreadyBeenShown = true;
         }
 
-        private int LoadLastShownId()
+        internal int LoadLastShownId()
         {
-            if (isoStore.Contains(LastShownNotificationId))
-                return (int)isoStore[LastShownNotificationId];
+            if (_isoStore.Contains(_lastShownNotificationId))
+                return (int)_isoStore[_lastShownNotificationId];
 
             return -1;
         }
 
-        private void SaveLastShownId(int notificationId)
+        internal void SaveLastShownId(int notificationId)
         {
-            isoStore[LastShownNotificationId] = notificationId;
+            _isoStore[_lastShownNotificationId] = notificationId;
         }
     }
 }
