@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZinkoLabs.AppFx", "ZinkoLabs.Common.UI\ZinkoLabs.AppFx.csproj", "{8053E946-FD5E-4A24-A511-D68C4D5F0605}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFx", "ZinkoLabs.AppFx\AppFx.csproj", "{8053E946-FD5E-4A24-A511-D68C4D5F0605}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZinkoLabs.AppFx.StartupNotifications.TestApp", "ZinkoLabs.Common.UI.StartupNotifications.TestApp\ZinkoLabs.AppFx.StartupNotifications.TestApp.csproj", "{BF08544D-A669-4BDD-8439-2BCEA1311B28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFx.StartupNotifications.TestApp", "ZinkoLabs.AppFx.StartupNotifications.TestApp\AppFx.StartupNotifications.TestApp.csproj", "{BF08544D-A669-4BDD-8439-2BCEA1311B28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D4DBACE-B5C4-4367-99BE-A6CD672AE399}"
 	ProjectSection(SolutionItems) = preProject

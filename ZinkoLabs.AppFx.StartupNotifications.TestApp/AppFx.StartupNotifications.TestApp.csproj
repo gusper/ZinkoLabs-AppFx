@@ -138,9 +138,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ZinkoLabs.Common.UI\ZinkoLabs.AppFx.csproj">
+    <ProjectReference Include="..\ZinkoLabs.AppFx\AppFx.csproj">
       <Project>{8053E946-FD5E-4A24-A511-D68C4D5F0605}</Project>
-      <Name>ZinkoLabs.AppFx</Name>
+      <Name>AppFx</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
