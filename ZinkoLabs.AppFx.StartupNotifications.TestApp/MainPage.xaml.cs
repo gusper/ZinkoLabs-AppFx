@@ -16,43 +16,43 @@ namespace ZinkoLabs.AppFx.StartupNotifications.TestApp
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        StartupNotificationsManager _notificationsManager;
-        EulaPresenter _eulaPresenter;
+        //StartupNotificationsManager _notificationsManager;
+        //EulaPresenter _eulaPresenter;
 
         public MainPage()
         {
             InitializeComponent();
-            InitializeStartupNotifications();
+            //InitializeStartupNotifications();
         }
 
         private void InitializeStartupNotifications()
         {
-            var disclaimerText = "Your disclaimer text goes here.";
-            _eulaPresenter = new EulaPresenter("Test App", 103, disclaimerText);
-            _notificationsManager = new StartupNotificationsManager("Test App",
-                new StartupNotification(201, "What's new?", "We've added:\n• New feature\n• Another feature\n• Minor bug fixes"));
+            //var disclaimerText = "Your disclaimer text goes here.";
+            //_eulaPresenter = new EulaPresenter("Test App", 103, disclaimerText);
+            //_notificationsManager = new StartupNotificationsManager("Test App",
+            //    new StartupNotification(201, "What's new?", "We've added:\n• New feature\n• Another feature\n• Minor bug fixes"));
 
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!_eulaPresenter.PresentEulaToUser())
-            {
-                DisableAllControls();
-            }
-            else
-            {
-                _notificationsManager.ShowNotifications();
-            }
+            //if (!_eulaPresenter.PresentEulaToUser())
+            //{
+            //    DisableAllControls();
+            //}
+            //else
+            //{
+            //    _notificationsManager.ShowNotifications();
+            //}
         }
 
         private void DisableAllControls()
         {
-            EulaRejectedText.Visibility = System.Windows.Visibility.Visible;
-            TitlePanel.Visibility = System.Windows.Visibility.Collapsed;
-            ContentPanel.Visibility = System.Windows.Visibility.Collapsed;
-            ApplicationBar.IsVisible = false;
+            //EulaRejectedText.Visibility = System.Windows.Visibility.Visible;
+            //TitlePanel.Visibility = System.Windows.Visibility.Collapsed;
+            //ContentPanel.Visibility = System.Windows.Visibility.Collapsed;
+            //ApplicationBar.IsVisible = false;
         }
     }
 }
