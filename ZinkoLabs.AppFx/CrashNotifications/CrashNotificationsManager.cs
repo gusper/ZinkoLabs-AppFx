@@ -8,7 +8,7 @@ namespace ZinkoLabs.AppFx.CrashNotifications
 {
     public static class CrashNotificationsManager
     {
-        const string filename = "ZinkoLabs.AppFx.CrashNotificationData.txt";
+        const string _filename = "ZinkoLabs.AppFx.CrashNotificationData.txt";
 
         public static void ReportException(Exception ex, string extra)
         {
@@ -17,7 +17,7 @@ namespace ZinkoLabs.AppFx.CrashNotifications
                 using (var store = IsolatedStorageFile.GetUserStoreForApplication())
                 {
                     SafeDeleteFile(store);
-                    using (TextWriter output = new StreamWriter(store.CreateFile(filename)))
+                    using (TextWriter output = new StreamWriter(store.CreateFile(_filename)))
                     {
                         output.WriteLine(extra);
                         output.WriteLine(ex.Message);
@@ -30,19 +30,20 @@ namespace ZinkoLabs.AppFx.CrashNotifications
             }
         }
 
-        public static void CheckForPreviousException(string appName)
+        public static void CheckForPreviousException(string appName, string supportEmailAddress)
         {
             try
             {
                 string contents = null;
                 using (var store = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    if (store.FileExists(filename))
+                    if (store.FileExists(_filename))
                     {
-                        using (TextReader reader = new StreamReader(store.OpenFile(filename, FileMode.Open, FileAccess.Read, FileShare.None)))
+                        using (TextReader reader = new StreamReader(store.OpenFile(_filename, FileMode.Open, FileAccess.Read, FileShare.None)))
                         {
                             contents = reader.ReadToEnd();
                         }
+
                         SafeDeleteFile(store);
                     }
                 }
@@ -50,8 +51,8 @@ namespace ZinkoLabs.AppFx.CrashNotifications
                 {
                     if (MessageBox.Show("A problem occurred the last time you ran this application. Would you like to send an email to report it?", "Problem Report", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
-                        EmailComposeTask email = new EmailComposeTask();
-                        email.To = "support@zinkolabs.com";
+                        var email = new EmailComposeTask();
+                        email.To = supportEmailAddress;
                         email.Subject = string.Format("{0} Problem Report", appName);
                         email.Body = contents;
                         SafeDeleteFile(IsolatedStorageFile.GetUserStoreForApplication());
@@ -68,11 +69,11 @@ namespace ZinkoLabs.AppFx.CrashNotifications
             }
         }
 
-        internal static void SafeDeleteFile(IsolatedStorageFile store)
+        private static void SafeDeleteFile(IsolatedStorageFile store)
         {
             try
             {
-                store.DeleteFile(filename);
+                store.DeleteFile(_filename);
             }
             catch (Exception)
             {

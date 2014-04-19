@@ -5,7 +5,7 @@ namespace ZinkoLabs.AppFx.StartupNotifications
 {
     public class StartupNotificationsManager
     {
-        IsolatedStorageSettings _isoStore = IsolatedStorageSettings.ApplicationSettings;
+        IsolatedStorageSettings _settings = IsolatedStorageSettings.ApplicationSettings;
         StartupNotification _notification;
         bool _alreadyBeenShown = false;
         string _appName;
@@ -20,7 +20,9 @@ namespace ZinkoLabs.AppFx.StartupNotifications
         public void ShowNotifications()
         {
             if (_alreadyBeenShown)
+            {
                 return;
+            }
 
             if (_notification.ID > LoadLastShownId())
             {
@@ -31,17 +33,19 @@ namespace ZinkoLabs.AppFx.StartupNotifications
             _alreadyBeenShown = true;
         }
 
-        internal int LoadLastShownId()
+        private int LoadLastShownId()
         {
-            if (_isoStore.Contains(_lastShownNotificationId))
-                return (int)_isoStore[_lastShownNotificationId];
+            if (_settings.Contains(_lastShownNotificationId))
+            {
+                return (int)_settings[_lastShownNotificationId];
+            }
 
             return -1;
         }
 
-        internal void SaveLastShownId(int notificationId)
+        private void SaveLastShownId(int notificationId)
         {
-            _isoStore[_lastShownNotificationId] = notificationId;
+            _settings[_lastShownNotificationId] = notificationId;
         }
     }
 }
