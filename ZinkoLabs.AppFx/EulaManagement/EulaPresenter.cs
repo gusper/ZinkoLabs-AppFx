@@ -74,21 +74,4 @@ namespace ZinkoLabs.AppFx.EulaManagement
             return false;
         }
     }
-
-    public delegate void EulaAnsweredEventHandler(object sender, EulaAnsweredEventArgs e);
-
-    public class EulaAnsweredEventArgs
-    {
-        bool _eulaAccepted;
-
-        public EulaAnsweredEventArgs(bool isAccepted)
-        {
-            _eulaAccepted = isAccepted;
-        }
-
-        public bool EulaAccepted
-        {
-            get { return _eulaAccepted; }
-        }
-    }
 }

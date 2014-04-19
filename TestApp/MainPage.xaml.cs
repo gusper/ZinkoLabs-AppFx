@@ -27,7 +27,7 @@ namespace TestApp
 
         private void InitializeStartupNotifications()
         {
-            var disclaimerText = "Your disclaimer text goes here.";
+            var disclaimerText = "Your application terms goes here.";
             _eulaPresenter = new EulaPresenter("Test App", 104, disclaimerText);
             _notificationsManager = new StartupNotificationsManager("Test App",
                 new StartupNotification(202, "What's new?", "We've added:\n• New feature\n• Another feature\n• Minor bug fixes"));

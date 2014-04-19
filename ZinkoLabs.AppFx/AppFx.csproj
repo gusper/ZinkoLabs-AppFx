@@ -95,6 +95,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CrashNotifications\CrashNotificationsManager.cs" />
+    <Compile Include="EulaManagement\EulaAnsweredEventArgs.cs" />
     <Compile Include="EulaManagement\EulaPresenter.cs" />
     <Compile Include="StartupNotifications\StartupNotification.cs" />
     <Compile Include="StartupNotifications\StartupNotificationsManager.cs" />
